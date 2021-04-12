@@ -201,12 +201,44 @@ const { Op } = require('sequelize')
 //     console.log(resultado)
 // })
 
-Usuario.findAll().then((usuarios) => {
-    console.table(usuarios.map((usuario) => usuario.toJSON()))
-})
+// Usuario.findAll().then((usuarios) => {
+//     console.table(usuarios.map((usuario) => usuario.toJSON()))
+// })
+
+// Post.findAll().then((posts) => {
+//     console.table(posts.map((post) => post.toJSON()))
+// })
 
 
 // // função Nereu
 // const consultaBanco = async (model, consulta, valor,coluna) => {
 //     await consulta(model, valor, caluna);
 // }
+
+// testando o associate jeito da Hendy
+
+// Usuario.findByPk(1, {
+//     include: [
+//         {association: "posts"}
+//     ]
+    
+// })
+// .then((usuario) => {
+//     console.table(usuario.posts.map((post) => post.toJSON()))
+// })
+
+// outro jeito
+
+// Usuario.findByPk(1,{include:['posts']}).then(
+//     usuario => {
+//         console.log(usuario.toJSON())
+//         sequelize.close()
+//     }
+// )
+
+
+Post.findByPk(1, {
+  include: [ {association: 'comentarios'} ]
+}).then((post) => {
+  console.table(post.comentarios.map((comentario) => comentario.toJSON()));
+});
