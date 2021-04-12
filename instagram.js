@@ -76,27 +76,134 @@ const { Op } = require('sequelize')
 
 // buscar todos os posts e retornar 2 por vez
 
-var pulo = 0
-while(totUser < 4){
-Usuario.findAll({
-    order: [
-        ['nome', 'ASC']
-    ],
-    limit: 2, 
-    offset: pulo
+
+// for (let i = 0; i < 6; i += 2) {
+//     Comentario.findAll({
+//       order: [['id', 'DESC']],
+//       offset: i,
+//       limit: 2,
+//     }).then((resultado) => {
+//       console.table(resultado.map((comment) => comment.toJSON()));
+//     });
+//   }
+
+
+// CRUD
+
+
+// Usuario.create({
+//     nome: 'Iago',
+//     email: 'iago@digitalhouse.com',
+//     senha: 'dev123'
+
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// })
+
+// Usuario.update({
+//     senha: 'novasenha123'
+// }, {
+//     where: {
+//         id:5
+//     }
+// }).then((resultado) => {
+//     console.log(resultado)
+// })
+
+// Usuario.destroy({
+//     where: {
+//         id: 5
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+
+
+// Usuario.findAll().then((usuarios) => {
+//     console.log(usuarios.map((usuario) => usuario.toJSON()))
+// })
+
+
+
+// desafio CRUD
+
+// Usuario.bulkCreate([{
+//     nome: 'Renata Cavalcanti',
+//     email: 'aenata@avanacle.com',
+//     senha: '123456'
+
+// },{
+//     nome: 'Ludmylla Valadares',
+//     email: 'ludmylla@avanacle.com',
+//     senha: '123456'
+
+// },{
+//     nome: 'Miguel Leite',
+//     email: 'miguel@avanacle.com',
+//     senha: '123456'
+
+// },{
+//     nome: 'Geisiane Martins',
+//     email: 'geisiane@avanacle.com',
+//     senha: '123456'
+
+// },{
+//     nome: 'Lenildo Lourenço',
+//     email: 'lenildo@avanacle.com',
+//     senha: '123456'
+
+// }]
+// ).then((resultado) => {
+//     // console.log(resultado.toJSON());
+// })
+
+
+
+// Usuario.create({
+//     nome: 'Ludmylla Valadares',
+//     email: 'ludmylla@avanacle.com',
+//     senha: '123456'
+
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// })
+
+//{ returning: true } pra retornar tudo que foi criado no bulkCreate
+
+// Usuario.destroy({
+//     where: {
+//         id: [13,14,15,16]
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+// crie um post relaionado ao seu usuario.
+
+// Post.create({
+//     texto: 'Urubu tem pena no pé.',
+//     usuarios_id: 17
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// })
+
+// Atualize o email do usuario 'Sergio' para 'sergio@digitalhouse.com'
+
+
+Usuario.update({
+    email: 'sergio@digitalhouse.com'
+}, {
+    where: {
+        id:2
+    }
+}).then((resultado) => {
+    console.log(resultado)
 })
-.then((resultado) => {
-    console.log(resultado.map(usuario => usuario.toJSON()))
-})
-pulo += 2
 
-}
-
-
-
-
-
-
+// Usuario.findAll().then((usuarios) => {
+//     console.log(usuarios.map((usuario) => usuario.toJSON()))
+// })
 
 
 // // função Nereu
