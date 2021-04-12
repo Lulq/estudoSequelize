@@ -191,19 +191,19 @@ const { Op } = require('sequelize')
 // Atualize o email do usuario 'Sergio' para 'sergio@digitalhouse.com'
 
 
-Usuario.update({
-    email: 'sergio@digitalhouse.com'
-}, {
-    where: {
-        id:2
-    }
-}).then((resultado) => {
-    console.log(resultado)
-})
-
-// Usuario.findAll().then((usuarios) => {
-//     console.log(usuarios.map((usuario) => usuario.toJSON()))
+// Usuario.update({
+//     email: 'sergio@digitalhouse.com'
+// }, {
+//     where: {
+//         id:2
+//     }
+// }).then((resultado) => {
+//     console.log(resultado)
 // })
+
+Usuario.findAll().then((usuarios) => {
+    console.table(usuarios.map((usuario) => usuario.toJSON()))
+})
 
 
 // // função Nereu
